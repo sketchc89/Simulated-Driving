@@ -18,19 +18,18 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[nvidia]: ./nvidia.png "End-end architecture from NVIDIA paper"
-[recover_0]: ./resize_recovery_0.png "Recovery Image"
-[recover_1]: ./resize_recovery_1.png "Recovery Image"
-[recover_2]: ./resize_recovery_2.png "Recovery Image"
-[center_1]: ./resize_center_1.png "Lane Centered"
-[center_2]: ./resize_center_2.png "Lane Centered"
-[architecture]: ./resize_model.png "Model Architecture"
-[unbalanced]: ./unbalanced_large.png "Unbalanced dataset"
-[balanced]: ./balanced_large.png "Balanced dataset"
-[train_val_loss]: ./loss.png "Training and validation loss"
-[preprocess]: ./flip_bright.png "Images cropped, flipped, and brightened/darkened"
-[run3]: ./run3.gif "Run 3 gif"
+[nvidia]: ./images/nvidia.png "End-end architecture from NVIDIA paper"
+[recover_0]: ./images/resize_recovery_0.png "Recovery Image"
+[recover_1]: ./images/resize_recovery_1.png "Recovery Image"
+[recover_2]: ./images/resize_recovery_2.png "Recovery Image"
+[center_1]: ./images/resize_center_1.png "Lane Centered"
+[center_2]: ./images/resize_center_2.png "Lane Centered"
+[architecture]: ./images/resize_model.png "Model Architecture"
+[unbalanced]: ./images/unbalanced_large.png "Unbalanced dataset"
+[balanced]: ./images/balanced_large.png "Balanced dataset"
+[train_val_loss]: ./images/loss.png "Training and validation loss"
+[preprocess]: ./images/flip_bright.png "Images cropped, flipped, and brightened/darkened"
+[run3]: ./images/run3.gif "Run 3 gif"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
