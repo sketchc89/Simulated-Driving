@@ -20,14 +20,14 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./recovery_0.png "Recovery Image"
+[image4]: ./recovery_1.png "Recovery Image"
+[image5]: ./recovery_2.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 [architecture]: ./model.png "Model Architecture"
-[unbalanced]: ./unbalanced.png "Unbalanced dataset"
-[balanced]: ./balanced.png "Balanced dataset"
+[unbalanced]: ./unbalanced_large.png "Unbalanced dataset"
+[balanced]: ./balanced_large.png "Balanced dataset"
 [train_val_loss]: ./loss.png "Training and validation loss"
 [preprocess]: ./flip_bright.png "Images cropped, flipped, and brightened/darkened"
 
@@ -56,34 +56,35 @@ python drive.py model.h5
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 The Behavioral_Cloning.ipynb is a more readable version of model.py.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 My model is based on the [NVIDIA architecture](https://arxiv.org/abs/1604.07316). 
-![Model Architecture][architecture]
+
+
 The data is normalized with a lambda layer. The model uses ELU layers to introduce nonlinearity.
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting.
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line ). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used an Adam optimizer with a learning rate of 1e-4, (model.py line ).
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road, driving the track in both directions, and driving similarly on the second track.
 
 For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 #The overall strategy for deriving a model architecture was to ...
 
@@ -102,80 +103,61 @@ The final step was to run the simulator to see how well the car was driving arou
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture (model.py lines ) consisted of a convolution neural network with the following layers and layer sizes ...
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![Model Architecture][architecture]
 
-Layer (type)                 Output Shape              Param #   
-=================================================================
-cropping2d_2 (Cropping2D)    (None, 90, 320, 3)        0         
-_________________________________________________________________
-lambda_2 (Lambda)            (None, 90, 320, 3)        0         
-_________________________________________________________________
-conv2d_6 (Conv2D)            (None, 90, 320, 24)       1824      
-_________________________________________________________________
-max_pooling2d_6 (MaxPooling2 (None, 45, 160, 24)       0         
-_________________________________________________________________
-conv2d_7 (Conv2D)            (None, 45, 160, 36)       21636     
-_________________________________________________________________
-max_pooling2d_7 (MaxPooling2 (None, 22, 80, 36)        0         
-_________________________________________________________________
-conv2d_8 (Conv2D)            (None, 22, 80, 48)        43248     
-_________________________________________________________________
-max_pooling2d_8 (MaxPooling2 (None, 11, 40, 48)        0         
-_________________________________________________________________
-conv2d_9 (Conv2D)            (None, 11, 40, 64)        27712     
-_________________________________________________________________
-max_pooling2d_9 (MaxPooling2 (None, 5, 20, 64)         0         
-_________________________________________________________________
-conv2d_10 (Conv2D)           (None, 5, 20, 64)         36928     
-_________________________________________________________________
-max_pooling2d_10 (MaxPooling (None, 2, 10, 64)         0         
-_________________________________________________________________
-flatten_2 (Flatten)          (None, 1280)              0         
-_________________________________________________________________
-dense_5 (Dense)              (None, 128)               163968    
-_________________________________________________________________
-dense_6 (Dense)              (None, 64)                8256      
-_________________________________________________________________
-dense_7 (Dense)              (None, 32)                2080      
-_________________________________________________________________
-dense_8 (Dense)              (None, 1)                 33        
-=================================================================
-Total params: 305,685
-Trainable params: 305,685
-Non-trainable params: 0
-_________________________________________________________________
 
-####3. Creation of the Training Set & Training Process
+|Layer(type)|Output Shape|Param #|
+|-|-|-|
+|cropping2d_2(Cropping2D)|(None, 90, 320, 3)|0|
+|lambda_2 (Lambda)|            (None, 90, 320, 3)|        0    |
+|conv2d_6 (Conv2D)|(None, 90, 320, 24)|1824|
+|max_pooling2d_6 (MaxPooling2 |(None, 45, 160, 24)|       0|
+|conv2d_7 (Conv2D)            |(None, 45, 160, 36)|       21636|
+|max_pooling2d_7 (MaxPooling2 |(None, 22, 80, 36) |       0|
+|conv2d_8 (Conv2D)            |(None, 22, 80, 48) |       43248|
+|max_pooling2d_8 (MaxPooling2 |(None, 11, 40, 48) |       0|
+|conv2d_9 (Conv2D)            |(None, 11, 40, 64) |       27712|
+|max_pooling2d_9 (MaxPooling2 |(None, 5, 20, 64)  |       0     |
+|conv2d_10 (Conv2D)           |(None, 5, 20, 64)  |       36928  |
+|max_pooling2d_10 (MaxPooling |(None, 2, 10, 64)  |       0       |
+|flatten_2 (Flatten)          |(None, 1280)       |       0        |
+|dense_5 (Dense)              |(None, 128)        |       163968|
+|dense_6 (Dense)              |(None, 64)         |       8256|
+|dense_7 (Dense)              |(None, 32)         |       2080|
+|dense_8 (Dense)              |(None, 1)          |       33|
+|Total params: 305,685|||
+|Trainable params: 305,685|||
+|Non-trainable params: 0|||
+
+
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to get back to the center of the lane if it diverged from the center. These images show what a recovery looks like starting from ... :
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![alt text][image3]{width=250px; display=block;}
+
+![alt text][image4]{width=250px; display=block;}
+
+![alt text][image5]{width=250px; display=block;}
 
 Then I repeated this process on track two in order to get more data points.
 
 To augment the data sat, I also flipped images and angles thinking that this would prevent the car from being biased towards turning in one direction. For example, here is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+After the collection process, I had about 10k data points. After subsampling, I had about 3k data points. That was doubled to 6k by flipping the images. It isn't exact since I probabilistically sub-sampled overrepresented angles. I then preprocessed the data by cropping the top and bottom off the image which were assumed to be unimportant to following the lines.
 
-Etc ....
+![Augmented data][preprocess]
 
-After the collection process, I had about 14k data points. It isn't exact since I probabilistically sub-sampled overrepresented angles. I then preprocessed the data using
+I finally randomly shuffled the data set and put 20% of the data into a validation set.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 as evidenced by the image below. I used an Adam optimizer with a learning rate of 1e-4 though the learning rate is adjusted by the algorithm from this point.
 
-
-I finally randomly shuffled the data set and put 20% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by the image below... I used an Adam optimizer with a learning rate of 1e-4 though the learning rate is adjusted by the algorithm from this point.
 ![Training-validation loss][train_val_loss]
