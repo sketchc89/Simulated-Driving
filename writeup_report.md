@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 [balanced]: ./images/balanced_large.png "Balanced dataset"
 [train_val_loss]: ./images/loss.png "Training and validation loss"
 [preprocess]: ./images/flip_bright.png "Images cropped, flipped, and brightened/darkened"
-[run3]: ./images/run3.gif "Run 3 gif"
+[run3]: ./images/run3_0.gif "Run 3 gif"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
