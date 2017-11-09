@@ -80,14 +80,14 @@ The data is normalized with a lambda layer. The model uses convolution layers, E
 
 The model contains max pooling layers in order to reduce overfitting.
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (model.py line ). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (model.py line 121-8). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ![Architecture][run3]
 
 
 #### 3. Model parameter tuning
 
-The model used an Adam optimizer with a learning rate of 1e-4, (model.py line ).
+The model used an Adam optimizer with a learning rate of 1e-4, (model.py line 130-54).
 
 #### 4. Appropriate training data
 
@@ -118,9 +118,9 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines ) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 130-54) consisted of a convolution neural network with the following layers and layer sizes ...
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+Here is a table of the architecture, the size of each layer, and the number of variables per layer
 
 
 
@@ -150,7 +150,7 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving. I used my computer mouse to drive. The quality of driving wasn't exceptional, and its hard to tell how the final model is affected by this. People on the Udacity forums mentioned that using a controller and a higher frequency mode worked much better.
 
 ![Centered][center_1]
 
