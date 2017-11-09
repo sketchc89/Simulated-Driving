@@ -2,10 +2,9 @@ data
 checkpoint
 .ipynb_checkpoints
 *.h5
-models
+!model.h5
 *.swp
 *.p
 /driving_data
 *.ckpt.*
-*.mp4
 *.jpg
