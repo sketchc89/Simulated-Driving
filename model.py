@@ -93,9 +93,9 @@ homogenous_samples = np.genfromtxt(csv_fp, delimiter=',', usecols=(3,4,5,6))
 y = homogenous_samples[:,0]
 
 #Separate into n_bins bins and attempt to get <= max_samples in each
-n_bins = 25
+n_bins = 50
 y_bins = np.floor((y - np.min(y))*n_bins/(np.max(y) - np.min(y)))
-max_samples = 250
+max_samples = 500
 pct_keep = []
 for bin_num in range(n_bins+1):
     bin_n = y_bins == bin_num
