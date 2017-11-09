@@ -166,6 +166,8 @@ Then I repeated this process on track one in the opposite direction (clockwise v
 
 To augment the data set, I also flipped images and angles thinking that this would prevent the car from being biased towards turning in one direction and because I have a bias towards driving on the right side of the road.
 
+The cameras on the left and right side are not at the same position as the center. For a given steering angle they will be shifted laterally from the center. The camera is shifted approximately 50px laterally. A mid-size car is 1.8m wide. In order to readjust to the center in 1s at 20 mph, the car will travel 8.9m. The angle (from the arcsin) is 6.5 degrees which is approximately 0.25 in the unity car model. Steering angle measurements from the left and right side were adjusted by +0.25 for the left side and -0.25 for the right side.
+
 After the collection process, I had about 10k data points. After subsampling described above, I had about 3k data points. That was doubled to 6k by flipping the images. It isn't exact since I probabilistically sub-sampled overrepresented angles. I then preprocessed the data by cropping the top and bottom off the image which were assumed to be unimportant to following the lines. The following set of images is an example of one time snapshot in time from the left, center, and right sides.
 
 ![Augmented data][preprocess]
